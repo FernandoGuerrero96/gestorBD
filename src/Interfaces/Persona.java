@@ -35,7 +35,17 @@ public class Persona implements java.io.Serializable{
         apellidoMaterno= "";
     }
     //constructor que recibe atributos
-    void registro (String id , String nombre, String apellidoPaterno, String apellidoMaterno ,int diaNac,int mesNac,int anoNac,int credito,int deuda){
+    void registro(
+            String id,
+            String nombre,
+            String apellidoPaterno,
+            String apellidoMaterno,
+            int diaNac,
+            int mesNac,
+            int anoNac,
+            int credito,
+            int deuda
+    ){
         this.id = id;
         this.diaNac=diaNac;
         this.mesNac=mesNac;

@@ -26,10 +26,10 @@ public class llenado extends javax.swing.JFrame {
     
     
     public llenado(Persona persona) {
-       
         initComponents();
-        this.person=persona;
-        if(this.person!=null){
+        this.person = persona;
+
+        if(this.person != null){
             texID.setText(this.person.id);
             texNombre.setText(this.person.getnombre());
             texMaterno.setText(this.person.getapellidoMaterno());
