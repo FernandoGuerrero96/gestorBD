@@ -35,8 +35,8 @@ public class Serializar {
             System.out.println(ioe);
         }
         catch(ClassNotFoundException c){
-           System.out.println("Class not found");
-           c.printStackTrace();
+            System.out.println("Class not found");
+            c.printStackTrace();
         }
         return persona;
     }

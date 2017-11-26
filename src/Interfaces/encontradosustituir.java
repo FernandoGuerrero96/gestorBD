@@ -14,11 +14,14 @@ public class encontradosustituir extends javax.swing.JFrame {
     /**
      * Creates new form EncontradoSustituir
      */
-    public encontradosustituir() {
+    public Persona persona = new Persona();
+    
+    public encontradosustituir(Persona person) {
         initComponents();
+        this.persona = person;
     }
 
-    encontradosustituir(Persona get) {
+    private encontradosustituir() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
