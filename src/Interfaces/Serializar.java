@@ -33,12 +33,10 @@ public class Serializar {
         catch(IOException ioe){
             ioe.printStackTrace();
             System.out.println(ioe);
-            System.out.println("error 1");
         }
         catch(ClassNotFoundException c){
             System.out.println("Class not found");
             c.printStackTrace();
-            System.out.println("error 2");
         }
         return persona;
     }
