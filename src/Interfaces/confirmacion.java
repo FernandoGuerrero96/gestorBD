@@ -106,13 +106,13 @@ public Persona person;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton Sustituir
-        SustityBuscar camino1= new SustityBuscar(person);
+        SustityBuscar camino1 = new SustityBuscar(person);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-Bienvenida back=new Bienvenida();
+        Bienvenida back = new Bienvenida();
         back.setVisible(true);
         this.setVisible(false);    }//GEN-LAST:event_jButton3ActionPerformed
 

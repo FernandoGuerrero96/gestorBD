@@ -18,7 +18,6 @@ public class clientesi extends javax.swing.JFrame {
     public clientesi(Persona persona) {
         initComponents();
         this.personita = persona;
-        
     }
 
     private clientesi() {
@@ -105,14 +104,14 @@ public class clientesi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Bienvenida back=new Bienvenida();
+        Bienvenida back = new Bienvenida();
         back.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void simodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simodificarActionPerformed
         // Boton Si Modificar
-        manipulacion camino1=new manipulacion(this.personita);
+        manipulacion camino1 = new manipulacion(this.personita);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_simodificarActionPerformed

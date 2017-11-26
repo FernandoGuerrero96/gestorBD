@@ -139,14 +139,14 @@ public Persona person;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // boton modificardatos
         System.out.println(this.person.nombre);
-        llenado camino1= new llenado(this.person);
+        llenado camino1 = new llenado(this.person);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        SustityBuscar camino1=new SustityBuscar(person);
+        SustityBuscar camino1 = new SustityBuscar(person);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -157,7 +157,7 @@ public Persona person;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // boton continuar registro
-        confirmacion camino1=new confirmacion(this.person);
+        confirmacion camino1 = new confirmacion(this.person);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
