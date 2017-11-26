@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class SustityBuscar extends javax.swing.JFrame {
     public  Persona person = new Persona();
-    public ArrayList<Persona> persona = new ArrayList<Persona>();
+    public ArrayList<Persona> personas = new ArrayList<Persona>();
     public Serializar serializador =  new Serializar();
     public String susBuscador;
     /**
@@ -87,27 +87,34 @@ public class SustityBuscar extends javax.swing.JFrame {
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         // Boton Buscar   
         susBuscador= texSustit.getText();
-        persona = serializador.leerpersona();
+        personas = serializador.leerpersona();
+        Persona personaAux = new Persona();
+        boolean lanzador = false;
         
-        if(persona.size() < 1){
+        if(personas.size() < 1){
             noSustituir camino1 = new noSustituir();
             camino1.setVisible(true);
             this.setVisible(false);  
         }
         //CAMINO 2
         else{
-            for(int i = 0;i < persona.size();i++){   
-                if(persona.get(i).id.equals(susBuscador)){
-                    encontradosustituir camino2;
-                    camino2 = new encontradosustituir(persona.get(i));
-                    camino2.setVisible(true);
-                    this.setVisible(false); 
+            for(int i = 0;i < personas.size();i++){   
+                if(personas.get(i).id.equals(susBuscador)){
+                    lanzador = true;
+                    personaAux = personas.get(i); 
                 }
-                else{
-                    noSustituir camino1 = new noSustituir();
-                    camino1.setVisible(true);
-                    this.setVisible(false);
-                }
+            }
+            
+            if(lanzador){
+                encontradosustituir camino2;
+                camino2 = new encontradosustituir(personaAux);
+                camino2.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                noSustituir camino1 = new noSustituir();
+                camino1.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_botonBuscarActionPerformed
