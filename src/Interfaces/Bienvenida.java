@@ -6,6 +6,7 @@
 package Interfaces;
 //IMPLEMENTAR METODO QUE LEA EL ARCHIVO Y ENCUENTRE EL ID
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -98,31 +99,36 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void buscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIDActionPerformed
         // Boton Buscar
-        buscador=texID.getText();
-        persona= serializador.leerpersona();
+        buscador = texID.getText();
+        persona = serializador.leerpersona();
+        boolean lanzador = false;
+        Persona personaAux = new Persona();
+        
         if(persona.size() < 1){
-         clienteno camino1= new clienteno();
-       camino1.setVisible(true);
-       this.setVisible(false);  
+            clienteno camino1= new clienteno();
+            camino1.setVisible(true);
+            this.setVisible(false);
         }
        //CAMINO 2
         else{
-                for(int i=0;i<persona.size();i++)
-                {   
-                    if(persona.get(i).id.equals(buscador)){
-                        clientesi camino2= new clientesi(persona.get(i));
-                        camino2.setVisible(true);
-                        this.setVisible(false); 
-                    }
-                    else{
-                        clienteno camino1= new clienteno();
-                        camino1.setVisible(true);
-                        this.setVisible(false);
-                    }
-                    
+            for(int i = 0;i <persona.size();i++){
+                if(persona.get(i).id.equals(buscador)){
+                    lanzador = true;
+                    personaAux = persona.get(i);
                 }
-    // en cada iteración "o" se refiere a un objeto del arreglo para todos objetos en el arreglo
-}
+            }
+            if(lanzador){
+                clientesi camino2 = new clientesi(personaAux);
+                camino2.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                clienteno camino1 = new clienteno();
+                camino1.setVisible(true);
+                this.setVisible(false);
+            }
+        //cada iteración "o" se refiere a un objeto del arreglo para todos objetos en el arreglo
+        }
  
     }//GEN-LAST:event_buscarIDActionPerformed
 
