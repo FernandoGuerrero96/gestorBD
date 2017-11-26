@@ -21,7 +21,7 @@ public class SustityBuscar extends javax.swing.JFrame {
      */
     public SustityBuscar(Persona persona) {
         initComponents();
-       this.person=persona;
+        this.person=persona;
        
     }
 
@@ -90,33 +90,28 @@ public class SustityBuscar extends javax.swing.JFrame {
         persona = serializador.leerpersona();
         
         if(persona.size() < 1){
-         noSustituir camino1 = new noSustituir();
-       camino1.setVisible(true);
-       this.setVisible(false);  
+            noSustituir camino1 = new noSustituir();
+            camino1.setVisible(true);
+            this.setVisible(false);  
         }
-       //CAMINO 2
+        //CAMINO 2
         else{
-                for(int i=0;i<persona.size();i++)
-                {   
-                    if(persona.get(i).id.equals(susBuscador)){
-                        encontradosustituir camino2;
-                        camino2 = new encontradosustituir(persona.get(i));
-                        camino2.setVisible(true);
-                        this.setVisible(false); 
-                    }
-                    else{
-                        noSustituir camino1 = new noSustituir();
-                        camino1.setVisible(true);
-                        this.setVisible(false);
-                    }
-                    
+            for(int i = 0;i < persona.size();i++){   
+                if(persona.get(i).id.equals(susBuscador)){
+                    encontradosustituir camino2;
+                    camino2 = new encontradosustituir(persona.get(i));
+                    camino2.setVisible(true);
+                    this.setVisible(false); 
                 }
-        
-        
-        
+                else{
+                    noSustituir camino1 = new noSustituir();
+                    camino1.setVisible(true);
+                    this.setVisible(false);
+                }
+            }
+        }
     }//GEN-LAST:event_botonBuscarActionPerformed
     
-    }
     /**
      * @param args the command line arguments
      */

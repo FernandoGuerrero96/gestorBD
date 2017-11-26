@@ -87,18 +87,18 @@ public class clienteno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Boton Cliente:
         //camino1
-        llenado camino1= new llenado(null);
+        llenado camino1 = new llenado(null);
         camino1.setVisible(true);
         this.setVisible(false);
         //camino2
-        llenado camino2=new llenado(null);
+        llenado camino2 = new llenado(null);
         camino2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Boton Cancelar
-        Bienvenida back=new Bienvenida();
+        Bienvenida back = new Bienvenida();
         back.setVisible(true);
         this.setVisible(false);
         

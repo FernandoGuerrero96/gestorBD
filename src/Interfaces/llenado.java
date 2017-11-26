@@ -20,35 +20,35 @@ public class llenado extends javax.swing.JFrame {
     
     
     ArrayList<Persona> persona= new ArrayList<Persona>();
+    ArrayList<Persona> personas = new ArrayList<Persona>();
     Serializar serializador= new Serializar();
     public Persona person;
     
     
     public llenado(Persona persona) {
-       
         initComponents();
-        this.person=persona;
-        if(this.person!=null)
-        {
-         texID.setText(this.person.id);
-         texNombre.setText(this.person.getnombre());
-         texMaterno.setText(this.person.getapellidoMaterno());
-         texPaterno.setText(this.person.getapellidoPaterno());
-         texDeuda.setText(Integer.toString(this.person.getdeuda()));
-         texCredito.setText(Integer.toString(this.person.getcredito()));
-         diaNac.setSelectedItem(this.person.getdiaNac());
-         mesNac.setSelectedItem(this.person.getmesNac());
-         anoNac.setSelectedItem(this.person.getanoNac());
+        this.person = persona;
+
+        if(this.person != null){
+            texID.setText(this.person.id);
+            texNombre.setText(this.person.getnombre());
+            texMaterno.setText(this.person.getapellidoMaterno());
+            texPaterno.setText(this.person.getapellidoPaterno());
+            texDeuda.setText(Integer.toString(this.person.getdeuda()));
+            texCredito.setText(Integer.toString(this.person.getcredito()));
+            diaNac.setSelectedItem(this.person.getdiaNac());
+            mesNac.setSelectedItem(this.person.getmesNac());
+            anoNac.setSelectedItem(this.person.getanoNac());
         }
         else{
-        texNombre.setText("");
-        texMaterno.setText("");
-        texPaterno.setText("");
-        texDeuda.setText("");
-        texCredito.setText("");
-        diaNac.setSelectedItem("");
-        mesNac.setSelectedItem("");
-        anoNac.setSelectedItem("");
+            texNombre.setText("");
+            texMaterno.setText("");
+            texPaterno.setText("");
+            texDeuda.setText("");
+            texCredito.setText("");
+            diaNac.setSelectedItem("");
+            mesNac.setSelectedItem("");
+            anoNac.setSelectedItem("");
         }
         
     }
@@ -293,21 +293,34 @@ public class llenado extends javax.swing.JFrame {
         // boton crear
         Persona nuevapersona= new Persona();
         if(this.person==null){
-            nuevapersona.registro(texID.getText(),texNombre.getText(),texPaterno.getText(),texMaterno.getText(), parseInt(diaNac.getSelectedItem().toString()),parseInt(mesNac.getSelectedItem().toString()), parseInt(anoNac.getSelectedItem().toString()),parseInt(texCredito.getText()),parseInt(texDeuda.getText()));
+            ArrayList<Persona> personaAux = new ArrayList<Persona>();
+            nuevapersona.registro(
+                texID.getText(),
+                texNombre.getText(),
+                texPaterno.getText(),
+                texMaterno.getText(),
+                parseInt(diaNac.getSelectedItem().toString()),
+                parseInt(mesNac.getSelectedItem().toString()),
+                parseInt(anoNac.getSelectedItem().toString()),
+                parseInt(texCredito.getText()),
+                parseInt(texDeuda.getText())
+            );
             persona.add(nuevapersona);
-            serializador.serializar(persona);
+            personas = serializador.leerpersona();
+            personaAux = serializador.enlazar(persona, personas);
+            serializador.serializar(personaAux);
         }
         else{
-            nuevapersona = this.person;   
+            nuevapersona = this.person;  
         }
-        manipulacion camino1= new manipulacion(nuevapersona);
+        manipulacion camino1 = new manipulacion(nuevapersona);
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        addcampo camino1= new addcampo();
+        addcampo camino1 = new addcampo();
         camino1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
