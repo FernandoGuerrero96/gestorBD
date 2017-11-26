@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author fernando
  */
 public class SustityBuscar extends javax.swing.JFrame {
-    public  Persona person;
-    public ArrayList<Persona> persona;
-    public Serializar serializador;
+    public  Persona person = new Persona();
+    public ArrayList<Persona> persona = new ArrayList<Persona>();
+    public Serializar serializador =  new Serializar();
     public String susBuscador;
     /**
      * Creates new form SustityBuscar
