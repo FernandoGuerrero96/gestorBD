@@ -138,7 +138,6 @@ public Persona person;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // boton modificardatos
-        System.out.println(this.person.nombre);
         llenado camino1 = new llenado(this.person);
         camino1.setVisible(true);
         this.setVisible(false);

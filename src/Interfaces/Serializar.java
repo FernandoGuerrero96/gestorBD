@@ -12,16 +12,13 @@ import java.io.*;
  * @author fernando
  */
 public class Serializar {
-    ArrayList<Persona> persona= new ArrayList<Persona>();
+    ArrayList<Persona> persona= new ArrayList<>();
     
     public void serializar(ArrayList<Persona> person){
-        try{
-            ObjectOutputStream salida=new ObjectOutputStream(new FileOutputStream("registro.txt"));
+        try(ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream("registro.txt"))) {
             salida.writeObject(person);
-            salida.close();
         }
         catch(IOException ioe){
-            ioe.printStackTrace();
             System.out.println(ioe);
         }
     }
@@ -31,14 +28,30 @@ public class Serializar {
             persona = (ArrayList<Persona>) entrada.readObject();
         } 
         catch(IOException ioe){
-            ioe.printStackTrace();
             System.out.println(ioe);
         }
         catch(ClassNotFoundException c){
             System.out.println("Class not found");
-            c.printStackTrace();
         }
         return persona;
+    }
+    
+    public ArrayList<Persona> updateData(Persona person){
+        this.persona = this.leerpersona();
+        for(int i = 0;i < this.persona.size();i++){
+            if(this.persona.get(i).id.equals(person.id)){
+                this.persona.get(i).setNombre(person.nombre);
+                this.persona.get(i).setApellidoPat(person.apellidoPaterno);
+                this.persona.get(i).setApellidoMat(person.apellidoMaterno);
+                this.persona.get(i).setAnoNac(person.anoNac);
+                this.persona.get(i).setMesNac(person.mesNac);
+                this.persona.get(i).setDiaNac(person.diaNac);
+                this.persona.get(i).setDeuda(person.deuda);
+                this.persona.get(i).setCredito(person.credito);
+            }
+        }
+        
+        return this.persona;
     }
     
     public ArrayList<Persona> sustituir(Persona aSustiPersona, Persona sustiPersona){
@@ -55,7 +68,7 @@ public class Serializar {
                 personas.get(i).setCredito(sustiPersona.getcredito());
             }
         }
-        personas.remove(sustiPersona);
+        personas.remove(sustiPersona.id);
         return personas;
     }
     
@@ -85,5 +98,15 @@ public class Serializar {
             personaUnida.add(persona2.get(i));
         }
         return personaUnida;
+    }
+    
+    public void delete(Persona persona){
+        this.persona = this.leerpersona();
+        for(int i = 0;i < this.persona.size();i++){
+            if(this.persona.get(i).id.equals(persona.id)){
+                this.persona.remove(i);
+            }
+        }
+        this.serializar(this.persona);
     }
 }

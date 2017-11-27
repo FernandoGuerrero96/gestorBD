@@ -18,10 +18,9 @@ public class llenado extends javax.swing.JFrame {
      * Creates new form llenado
      */
     
-    
-    ArrayList<Persona> persona= new ArrayList<Persona>();
+    ArrayList<Persona> persona = new ArrayList<Persona>();
     ArrayList<Persona> personas = new ArrayList<Persona>();
-    Serializar serializador= new Serializar();
+    Serializar serializador = new Serializar();
     public Persona person;
     
     
@@ -311,7 +310,16 @@ public class llenado extends javax.swing.JFrame {
             serializador.serializar(personaAux);
         }
         else{
-            nuevapersona = this.person;  
+            this.person.setNombre(texNombre.getText());
+            this.person.setApellidoPat(texPaterno.getText());
+            this.person.setApellidoMat(texMaterno.getText());
+            this.person.setDiaNac(parseInt(diaNac.getSelectedItem().toString()));
+            this.person.setMesNac(parseInt(mesNac.getSelectedItem().toString()));
+            this.person.setAnoNac(parseInt(anoNac.getSelectedItem().toString()));
+            this.person.setDeuda(parseInt(texDeuda.getText()));
+            this.person.setCredito(parseInt(texCredito.getText()));
+            serializador.serializar(serializador.updateData(this.person));
+            nuevapersona = this.person;
         }
         manipulacion camino1 = new manipulacion(nuevapersona);
         camino1.setVisible(true);
