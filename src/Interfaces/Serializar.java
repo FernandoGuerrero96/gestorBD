@@ -41,6 +41,24 @@ public class Serializar {
         return persona;
     }
     
+    public ArrayList<Persona> updateData(Persona person){
+        this.persona = this.leerpersona();
+        for(int i = 0;i < this.persona.size();i++){
+            if(this.persona.get(i).id.equals(person.id)){
+                this.persona.get(i).setNombre(person.nombre);
+                this.persona.get(i).setApellidoPat(person.apellidoPaterno);
+                this.persona.get(i).setApellidoMat(person.apellidoMaterno);
+                this.persona.get(i).setAnoNac(person.anoNac);
+                this.persona.get(i).setMesNac(person.mesNac);
+                this.persona.get(i).setDiaNac(person.diaNac);
+                this.persona.get(i).setDeuda(person.deuda);
+                this.persona.get(i).setCredito(person.credito);
+            }
+        }
+        
+        return this.persona;
+    }
+    
     public ArrayList<Persona> sustituir(Persona aSustiPersona, Persona sustiPersona){
         ArrayList<Persona> personas = this.leerpersona();
         for(int i = 0; i < personas.size(); i++){
@@ -55,7 +73,7 @@ public class Serializar {
                 personas.get(i).setCredito(sustiPersona.getcredito());
             }
         }
-        personas.remove(sustiPersona);
+        personas.remove(sustiPersona.id);
         return personas;
     }
     
