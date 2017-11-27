@@ -104,4 +104,14 @@ public class Serializar {
         }
         return personaUnida;
     }
+    
+    public void delete(Persona persona){
+        this.persona = this.leerpersona();
+        for(int i = 0;i < this.persona.size();i++){
+            if(this.persona.get(i).id.equals(persona.id)){
+                this.persona.remove(i);
+            }
+        }
+        this.serializar(this.persona);
+    }
 }

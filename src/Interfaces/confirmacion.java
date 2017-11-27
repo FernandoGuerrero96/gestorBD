@@ -10,7 +10,8 @@ package Interfaces;
  * @author fernando
  */
 public class confirmacion extends javax.swing.JFrame {
-public Persona person;
+    public Persona person;
+    Serializar serializador = new Serializar();
     /**
      * Creates new form Confirmacion
      */
@@ -50,6 +51,11 @@ public Persona person;
         jScrollPane1.setViewportView(personaArea);
 
         jButton1.setText("SI");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sustituir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +118,16 @@ public Persona person;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        serializador.delete(this.person);
         Bienvenida back = new Bienvenida();
         back.setVisible(true);
         this.setVisible(false);    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Bienvenida camino = new Bienvenida();
+        camino.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
