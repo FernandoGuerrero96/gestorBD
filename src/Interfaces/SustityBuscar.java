@@ -22,7 +22,6 @@ public class SustityBuscar extends javax.swing.JFrame {
     public SustityBuscar(Persona persona) {
         initComponents();
         this.person=persona;
-       
     }
 
     private SustityBuscar() {
@@ -107,7 +106,7 @@ public class SustityBuscar extends javax.swing.JFrame {
             
             if(lanzador){
                 encontradosustituir camino2;
-                camino2 = new encontradosustituir(personaAux);
+                camino2 = new encontradosustituir(this.person, personaAux);
                 camino2.setVisible(true);
                 this.setVisible(false);
             }

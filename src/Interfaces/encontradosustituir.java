@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author fernando
@@ -15,10 +17,14 @@ public class encontradosustituir extends javax.swing.JFrame {
      * Creates new form EncontradoSustituir
      */
     public Persona persona = new Persona();
+    public Persona susti = new Persona();
+    public ArrayList<Persona> personas = new ArrayList<Persona>();
+    Serializar serializador = new Serializar();
     
-    public encontradosustituir(Persona person) {
+    public encontradosustituir(Persona person, Persona sustutiPersona) {
         initComponents();
         this.persona = person;
+        this.susti = sustutiPersona;
     }
 
     private encontradosustituir() {
@@ -76,6 +82,8 @@ public class encontradosustituir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        personas = serializador.sustituir(this.persona, this.susti);
+        serializador.serializar(personas);
         SustiturFinal camino1 = new SustiturFinal();
         camino1.setVisible(true);
         this.setVisible(false);
