@@ -12,16 +12,13 @@ import java.io.*;
  * @author fernando
  */
 public class Serializar {
-    ArrayList<Persona> persona= new ArrayList<Persona>();
+    ArrayList<Persona> persona= new ArrayList<>();
     
     public void serializar(ArrayList<Persona> person){
-        try{
-            ObjectOutputStream salida=new ObjectOutputStream(new FileOutputStream("registro.txt"));
+        try(ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream("registro.txt"))) {
             salida.writeObject(person);
-            salida.close();
         }
         catch(IOException ioe){
-            ioe.printStackTrace();
             System.out.println(ioe);
         }
     }
@@ -31,12 +28,10 @@ public class Serializar {
             persona = (ArrayList<Persona>) entrada.readObject();
         } 
         catch(IOException ioe){
-            ioe.printStackTrace();
             System.out.println(ioe);
         }
         catch(ClassNotFoundException c){
             System.out.println("Class not found");
-            c.printStackTrace();
         }
         return persona;
     }
