@@ -41,6 +41,24 @@ public class Serializar {
         return persona;
     }
     
+    public ArrayList<Persona> sustituir(Persona aSustiPersona, Persona sustiPersona){
+        ArrayList<Persona> personas = this.leerpersona();
+        for(int i = 0; i < personas.size(); i++){
+            if(personas.get(i).id.equals(aSustiPersona.id)){
+                personas.get(i).setNombre(sustiPersona.getnombre());
+                personas.get(i).setApellidoPat(sustiPersona.getapellidoPaterno());
+                personas.get(i).setApellidoMat(sustiPersona.getapellidoMaterno());
+                personas.get(i).setAnoNac(sustiPersona.getanoNac());
+                personas.get(i).setMesNac(sustiPersona.getmesNac());
+                personas.get(i).setDiaNac(sustiPersona.getdiaNac());
+                personas.get(i).setDeuda(sustiPersona.getdeuda());
+                personas.get(i).setCredito(sustiPersona.getcredito());
+            }
+        }
+        personas.remove(sustiPersona);
+        return personas;
+    }
+    
     public ArrayList<Persona> enlazar(ArrayList<Persona> persona1, ArrayList<Persona> persona2){
         ArrayList<Persona> personaUnida = new ArrayList<Persona>();
         
